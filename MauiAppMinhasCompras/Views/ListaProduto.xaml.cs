@@ -20,6 +20,8 @@ public partial class ListaProduto : ContentPage
     {
         try
         {
+            lista.Clear();
+
             List<Produto> tmp = await App._Db.GetAll();
 
             tmp.ForEach(i => lista.Add(i));
