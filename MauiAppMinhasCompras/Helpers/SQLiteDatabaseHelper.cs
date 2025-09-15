@@ -44,5 +44,10 @@ namespace MauiAppMinhasCompras.Helpers
 
             return _conn.QueryAsync<Produto>(sql);
         }
+
+        internal object Table<T>()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

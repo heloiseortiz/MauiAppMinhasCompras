@@ -24,7 +24,7 @@ public partial class EditarProduto : ContentPage
                 Preco = Convert.ToDouble(txt_preco.Text)
             };
 
-            await App._Db.Update(p);
+            await App.Db.Update(p);
             await DisplayAlert("Salvo", "Registro Atualizado", "OK");
             await Navigation.PopAsync();
 

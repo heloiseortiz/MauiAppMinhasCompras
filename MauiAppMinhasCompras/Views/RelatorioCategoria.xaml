@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppMinhasCompras.Views.RelatorioCategoria"
+             Title="Relatório por Categoria">
+
+    <StackLayout Padding="10" Spacing="15">
+
+        <!-- Título do relatório -->
+        <Label Text="Relatório de Produtos por Categoria"
+               FontSize="24"
+               HorizontalOptions="Center" />
+
+        <!-- CollectionView mostrando categorias e total -->
+        <CollectionView x:Name="ProdutosCollectionView"
+                        ItemsSource="{Binding RelatorioCategorias}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Margin="5" Padding="10" CornerRadius="10" HasShadow="True">
+                        <StackLayout>
+                            <Label Text="{Binding Categoria}" FontSize="20" FontAttributes="Bold"/>
+                            <Label Text="{Binding Total, StringFormat='Total: {0:C}'}" FontSize="16"/>
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- Total geral -->
+        <Label x:Name="TotalCategoriaLabel"
+               FontSize="20"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               Text="" />
+
+    </StackLayout>
+</ContentPage>

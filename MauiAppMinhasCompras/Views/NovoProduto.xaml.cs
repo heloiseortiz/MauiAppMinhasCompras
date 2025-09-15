@@ -1,4 +1,4 @@
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using MauiAppMinhasCompras.Models;
 
 namespace MauiAppMinhasCompras.Views;
@@ -10,7 +10,12 @@ public partial class NovoProduto : ContentPage
 		InitializeComponent();
 	}
 
-	private async void ToolbarItem_Clicked(object sender, EventArgs e)
+    private Picker GetPicker_categoria()
+    {
+        return picker_categoria;
+    }
+
+    private async void ToolbarItem_Clicked(object sender, EventArgs e)
 	{
 		try
 		{
@@ -18,10 +23,14 @@ public partial class NovoProduto : ContentPage
 			{
 				Descricao = txt_descricao.Text,
 				Quantidade = Convert.ToInt32(txt_quantidade.Text),
-				Preco = Convert.ToDouble(txt_preco.Text)
-			};
+				Preco = Convert.ToDouble(txt_preco.Text),
 
-			await App._Db.Insert(p);
+                // 🔹 ADIÇÃO: salvar a categoria escolhida
+                Categoria = picker_categoria.SelectedItem?.ToString()
+
+            };
+
+			await App.Db.Insert(p);
 			await DisplayAlert("Salvo", "Registro Inserido com sucesso!!", "OK");
 			await Navigation.PopAsync();
 

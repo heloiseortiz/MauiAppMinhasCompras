@@ -18,5 +18,16 @@
         <Label Text="Preço Unitário:" />
         <Editor x:Name="txt_preco" Keyboard="Numeric" />
 
+        <!-- 🔹 ADIÇÃO: Campo para escolher a Categoria -->
+        <Label Text="Categoria:" />
+        <Picker x:Name="picker_categoria">
+            <Picker.Items>
+                <x:String>Alimentos</x:String>
+                <x:String>Higiene</x:String>
+                <x:String>Limpeza</x:String>
+                <x:String>Outros</x:String>
+            </Picker.Items>
+        </Picker>
+
     </VerticalStackLayout>
 </ContentPage>

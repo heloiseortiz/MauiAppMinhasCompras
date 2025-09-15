@@ -22,7 +22,7 @@ public partial class ListaProduto : ContentPage
         {
             lista.Clear();
 
-            List<Produto> tmp = await App._Db.GetAll();
+            List<Produto> tmp = await App.Db.GetAll();
 
             tmp.ForEach(i => lista.Add(i));
         }
@@ -56,7 +56,7 @@ public partial class ListaProduto : ContentPage
 
             lista.Clear();
 
-            List<Produto> tmp = await App._Db.Search(q);
+            List<Produto> tmp = await App.Db.Search(q);
 
             tmp.ForEach(i => lista.Add(i));
         }
@@ -92,7 +92,7 @@ public partial class ListaProduto : ContentPage
 
             if (confirm)
             {
-                await App._Db.Delete(p.Id);
+                await App.Db.Delete(p.Id);
                 lista.Remove(p);
             }
         }
@@ -125,7 +125,7 @@ public partial class ListaProduto : ContentPage
         {
             lista.Clear();
 
-            List<Produto> tmp = await App._Db.GetAll();
+            List<Produto> tmp = await App.Db.GetAll();
 
             tmp.ForEach(i => lista.Add(i));
         }
